@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style Guide Dimensions -->
+    <dimen name="doorDashPaddingHalf">4dp</dimen>
+    <dimen name="doorDashPadding">8dp</dimen>
+    <dimen name="doorDashPadding15">12dp</dimen>
+    <dimen name="doorDashPadding2x">16dp</dimen>
+    <dimen name="doorDashPadding3x">24dp</dimen>
+    <dimen name="doorDashPadding4x">32dp</dimen>
+    <dimen name="doorDashPadding5x">40dp</dimen>
+    <dimen name="doorDashPadding6x">48dp</dimen>
+    <dimen name="doorDashPadding7x">56dp</dimen>
+    <dimen name="doorDashPadding8x">64dp</dimen>
+
+    <!-- scaling paddings -->
+    <dimen name="doorDashScalingPadding">8dp</dimen>
+    <dimen name="doorDashScalingPadding15">12dp</dimen>
+    <dimen name="doorDashScalingPadding2x">16dp</dimen>
+
+    <!-- scaling margins -->
+    <dimen name="doorDashNoMargin">0dp</dimen>
+    <dimen name="doorDashMarginHalf">4dp</dimen>
+    <dimen name="doorDashMargin">8dp</dimen>
+    <dimen name="doorDashMargin15">12dp</dimen>
+    <dimen name="doorDashMargin2x">16dp</dimen>
+    <dimen name="doorDashMargin3x">24dp</dimen>
+    <dimen name="doorDashMargin4x">32dp</dimen>
+    <dimen name="doorDashMargin5x">40dp</dimen>
+    <dimen name="doorDashMargin6x">48dp</dimen>
+    <dimen name="doorDashMargin8x">64dp</dimen>
+    <dimen name="doorDashMargin10x">80dp</dimen>
+
+    <!-- ImageWidth -->
+    <dimen name="doorDashDiscoverImageWidth">60dp</dimen>
+    <dimen name="doorDashDiscoverImageHeight">60dp</dimen>
+
+    <!-- Card elevation -->
+    <dimen name="doorDashCardElevation">0dp</dimen>
+
+</resources>

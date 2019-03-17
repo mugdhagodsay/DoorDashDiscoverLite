@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="restaurant"
+            type="com.takehome.doordash.mgodsay.doordashdiscover.model.Restaurant" />
+
+        <import type="android.databinding.ObservableField" />
+
+        <variable
+            name="imagesVisible"
+            type="ObservableField&lt;Boolean&gt;" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/restaurant_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+
+        <FrameLayout
+            android:id="@+id/image_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/doorDashMargin2x"
+            android:layout_marginRight="@dimen/doorDashMargin2x"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageview_item_image"
+                android:layout_width="@dimen/doorDashDiscoverImageWidth"
+                android:layout_height="@dimen/doorDashDiscoverImageHeight"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{restaurant.coverImageUrl}"
+                app:imageVisibility="@{safeUnbox(imagesVisible)}" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/restaurant_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingTop="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:text="@{restaurant.name}"
+                tools:text="Product title with long name that wraps into two lines" />
+
+            <TextView
+                android:id="@+id/textview_restaurant_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingTop="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:paddingBottom="@dimen/doorDashPadding"
+                android:text="@{restaurant.description}"
+                tools:text="TRENDING PRICE" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingLeft="@dimen/doorDashPadding"
+            android:paddingTop="@dimen/doorDashPadding"
+            android:paddingRight="@dimen/doorDashPadding"
+            android:paddingBottom="@dimen/doorDashPadding"
+            android:text="@{restaurant.status}"
+            tools:text="$199.99 New" />
+
+    </LinearLayout>
+</layout>
