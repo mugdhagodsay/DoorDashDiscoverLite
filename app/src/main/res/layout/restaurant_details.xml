@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="restaurant"
+            type="com.takehome.doordash.mgodsay.doordashdiscover.model.Restaurant" />
+
+        <import type="android.databinding.ObservableField" />
+
+        <variable
+            name="imagesVisible"
+            type="ObservableField&lt;Boolean&gt;" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/restaurant_details_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/doorDashMargin2x"
+        android:layout_marginTop="@dimen/doorDashMargin2x"
+        android:layout_marginRight="@dimen/doorDashMargin2x"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/doorDashPadding2x">
+
+            <ImageView
+                android:id="@+id/imageview_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{restaurant.coverImageUrl}"
+                app:imageVisibility="@{safeUnbox(imagesVisible)}" />
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/doorDashMargin2x"
+            android:layout_marginTop="@dimen/doorDashMargin2x"
+            android:layout_marginRight="@dimen/doorDashMargin2x"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_restaurant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:text="@{restaurant.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                tools:text="Amarin Thai" />
+
+            <TextView
+                android:id="@+id/textview_restaurant_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:text="@{restaurant.description}"
+                tools:text="Thai food" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/doorDashMargin2x"
+                android:layout_marginRight="@dimen/doorDashMargin2x"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textview_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingLeft="@dimen/doorDashPadding"
+                    android:paddingRight="@dimen/doorDashPadding"
+                    android:text="@string/status"
+                    tools:text="Delivery status" />
+
+                <TextView
+                    android:id="@+id/textview_status_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/doorDashPadding"
+                    android:paddingRight="@dimen/doorDashPadding"
+                    android:text="@{restaurant.status}"
+                    tools:text="$199.99 New" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/doorDashMargin2x"
+            android:layout_marginTop="@dimen/doorDashMargin2x"
+            android:layout_marginRight="@dimen/doorDashMargin2x"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textview_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:text="@string/address"
+                tools:text="Address: " />
+
+            <TextView
+                android:id="@+id/textview_address_printable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/doorDashPadding"
+                android:paddingRight="@dimen/doorDashPadding"
+                android:text="@{restaurant.address.printableAddress}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                tools:text="San FranCisco" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -72,6 +72,4 @@ public class DiscoverViewModel extends ViewModel {
             }
         }));
     }
-
-
 }

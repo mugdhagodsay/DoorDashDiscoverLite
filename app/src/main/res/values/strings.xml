@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DoorDash Discover</string>
     <string name="launch_page_name">Discover</string>
+    <string name="restaurant_details_activity">Details</string>
+    <string name="maps_key">AIzaSyBx8oFG5TVwC2klARraJHZTMtoR-PNpfcE</string>
+    <string name="address">Address</string>
+    <string name="status">Approx. delivery time</string>
 </resources>

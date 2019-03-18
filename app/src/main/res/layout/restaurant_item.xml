@@ -12,6 +12,9 @@
         <variable
             name="restaurant"
             type="com.takehome.doordash.mgodsay.doordashdiscover.model.Restaurant" />
+        <variable
+            name="itemClickListener"
+            type="com.takehome.doordash.mgodsay.doordashdiscover.base.ItemClickListener"/>
 
         <import type="android.databinding.ObservableField" />
 
@@ -26,6 +29,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="@{() -> itemClickListener.onItemClick(restaurant)}"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal">
 

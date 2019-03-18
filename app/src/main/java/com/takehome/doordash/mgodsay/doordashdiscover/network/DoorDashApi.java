@@ -7,6 +7,7 @@ import java.util.Map;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 
 public interface DoorDashApi
@@ -14,6 +15,7 @@ public interface DoorDashApi
     @GET("restaurant/")
     Single <List<Restaurant>> discover(@QueryMap Map<String, String> paramsMap);
 
-//    Observable<DiscoverRestaurantResponse> getResponse();
+    @GET("restaurant/{id}/")
+    Single <Restaurant> getRestaurant(@Path("id")String id);
 
 }

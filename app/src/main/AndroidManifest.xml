@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".details.RestaurantDetailsActivity"
+            android:label="@string/restaurant_details_activity"/>
     </application>
 
 </manifest>

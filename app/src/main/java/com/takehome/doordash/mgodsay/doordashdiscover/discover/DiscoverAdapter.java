@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.takehome.doordash.mgodsay.doordashdiscover.base.ItemClickListener;
 import com.takehome.doordash.mgodsay.doordashdiscover.databinding.RestaurantItemBinding;
 import com.takehome.doordash.mgodsay.doordashdiscover.model.Restaurant;
 
@@ -17,10 +18,12 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
 {
     private final List<Restaurant> restaurantItemList = new ArrayList<>();
     private final ObservableField<Boolean> imagesVisible;
+    private ItemClickListener listener;
 
-    public DiscoverAdapter(ObservableField<Boolean> imagesVisible)
+    public DiscoverAdapter(ObservableField<Boolean> imagesVisible, ItemClickListener listener)
     {
         this.imagesVisible = imagesVisible;
+        this.listener = listener;
     }
 
     @NonNull
@@ -35,7 +38,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull DiscoverAdapter.ViewHolder holder, int position)
     {
-        holder.bind(restaurantItemList.get(position));
+        holder.bind(restaurantItemList.get(position), listener);
     }
 
     void add(Restaurant restaurant) {
@@ -49,7 +52,9 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+
         RestaurantItemBinding binding;
+
         ViewHolder (RestaurantItemBinding binding) {
             this(binding.getRoot());
             this.binding = binding;
@@ -57,7 +62,9 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.ViewHo
         ViewHolder(View view) {
             super(view);
         }
-        void bind(@NonNull Restaurant restaurant) {
+
+        void bind(@NonNull Restaurant restaurant, ItemClickListener listener) {
+            binding.setItemClickListener(listener);
             binding.setRestaurant(restaurant);
             binding.executePendingBindings();
         }
