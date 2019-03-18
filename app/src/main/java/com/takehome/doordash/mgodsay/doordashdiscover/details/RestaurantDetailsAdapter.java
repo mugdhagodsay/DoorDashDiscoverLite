@@ -41,6 +41,11 @@ public class RestaurantDetailsAdapter extends RecyclerView.Adapter<RestaurantDet
         return restaurantItemList.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
 
     void add(Restaurant restaurant) {
         restaurantItemList.add(restaurant);

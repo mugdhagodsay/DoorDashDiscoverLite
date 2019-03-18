@@ -30,6 +30,7 @@ public class RestaurantDetailsRecyclerFragment extends BaseFragment {
         String id = bundle.getString("RESTAURANT_ID");
         viewModel.setRestaurantId(id);
         adapter = new RestaurantDetailsAdapter(viewModel.imagesVisible);
+        adapter.setHasStableIds(true);
         listView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -39,7 +40,7 @@ public class RestaurantDetailsRecyclerFragment extends BaseFragment {
 
     private void onComponents(Restaurant response) {
 
-        if(response != null)
+        if(response != null && adapter.getItemCount() == 0)
         {
             adapter.add(response);
             listView.setVisibility(View.VISIBLE);

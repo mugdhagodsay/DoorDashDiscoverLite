@@ -33,10 +33,10 @@ public class DiscoverRecyclerFragment extends BaseFragment implements ItemClickL
         listView = view.findViewById(R.id.recycler_view_main);
         viewModel = ViewModelProviders.of(this).get(DiscoverViewModel.class);
         adapter = new DiscoverAdapter(viewModel.imagesVisible, this::onItemClick);
+        adapter.setHasStableIds(true);
         listView.addItemDecoration(new DividerItemDecoration(getBaseActivity(), DividerItemDecoration.VERTICAL));
         listView.setAdapter(adapter);
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //        getData();
         viewModel.getResponse().observe(this, this::onComponents);
 
     }

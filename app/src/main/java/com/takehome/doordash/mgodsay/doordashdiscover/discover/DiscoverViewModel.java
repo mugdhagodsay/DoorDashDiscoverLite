@@ -34,6 +34,11 @@ public class DiscoverViewModel extends ViewModel {
         getData();
     }
 
+    public DiscoverViewModel(ApiClient apiClient)
+    {
+        this.apiClient = apiClient;
+    }
+
     public LiveData<List<Restaurant>> getResponse() {
         return response;
     }
